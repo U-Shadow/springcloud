@@ -1,5 +1,6 @@
 server:
-  port: 9090
+  port: 9091
+
 
 eureka:
   instance:
@@ -14,3 +15,5 @@ eureka:
 spring:
   application:
     name: sub-provider
+  profiles:
+    active: por1
