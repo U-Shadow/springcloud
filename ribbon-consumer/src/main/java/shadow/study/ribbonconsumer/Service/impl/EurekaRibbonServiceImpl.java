@@ -1,5 +1,6 @@
 package shadow.study.ribbonconsumer.Service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -11,6 +12,7 @@ public class EurekaRibbonServiceImpl implements EurekaRibbonService {
     @Autowired
     public RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "getInfoFailure")
     @Override
     public String getInfo() {
         String message;
@@ -24,5 +26,9 @@ public class EurekaRibbonServiceImpl implements EurekaRibbonService {
             message = ex.getMessage();
         }
         return message;
+    }
+
+    public String getInfoFailure() {
+        return "网络繁忙，请稍后再试";
     }
 }
