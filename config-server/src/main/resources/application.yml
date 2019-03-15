@@ -26,7 +26,7 @@ spring:
       server:
         # 访问远程git仓库
         git:
-          uri: https://github.com/U-Shadow/springcloud
+          uri: https://github.com/U-Shadow/git-file
 #          username: U-Shadow
 #          password: xiaozhu915
 #        native:
