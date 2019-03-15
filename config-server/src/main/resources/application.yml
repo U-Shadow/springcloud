@@ -1,5 +1,5 @@
 server:
-  port: 11110
+  port: 52600
 
 eureka:
   instance:
@@ -19,11 +19,16 @@ eureka:
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
+#  profiles:
+#    active: native # 访问本地资源
   cloud:
     config:
       server:
-        native:
-          # 不指定路径的话，默认搜索resources目录下
-          search-locations: classpath:/config
+        # 访问远程git仓库
+        git:
+          uri: https://github.com/U-Shadow/springcloud
+#          username: U-Shadow
+#          password: xiaozhu915
+#        native:
+#          # 不指定路径的话，默认搜索resources目录下
+#          search-locations: classpath:/config
