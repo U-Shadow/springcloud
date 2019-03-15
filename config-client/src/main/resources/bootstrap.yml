@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master
+      fail-fast: true
+      uri: http://localhost:11110
+      name: config-client  #文件前缀名称
+      profile: dev #服务环境名称  例如 {name}-{profile} = config-client-dev.yml
